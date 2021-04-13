@@ -1,6 +1,7 @@
 @import "../utilities/mixins"
 
 $media-border-color: bulmaRgba($border, 0.5) !default
+$media-border-color-invert: bulmaRgba($border-invert, 0.5) !default
 $media-border-size: 1px !default
 $media-spacing: 1rem !default
 $media-spacing-large: 1.5rem !default
@@ -17,6 +18,8 @@ $media-level-2-spacing: 0.5rem !default
     margin-bottom: $media-content-spacing
   .media
     border-top: $media-border-size solid $media-border-color
+    +darktheme
+      border-top: $media-border-size solid $media-border-color-invert
     display: flex
     padding-top: $media-level-1-spacing
     .content:not(:last-child),
@@ -28,6 +31,8 @@ $media-level-2-spacing: 0.5rem !default
         margin-top: $media-level-2-spacing
   & + .media
     border-top: $media-border-size solid $media-border-color
+    +darktheme
+      border-top: $media-border-size solid $media-border-color-invert
     margin-top: $media-spacing
     padding-top: $media-spacing
   // Sizes

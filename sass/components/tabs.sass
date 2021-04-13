@@ -1,32 +1,47 @@
 @import "../utilities/mixins"
 
 $tabs-border-bottom-color: $border !default
+$tabs-border-bottom-color-invert: $border-invert !default
 $tabs-border-bottom-style: solid !default
 $tabs-border-bottom-width: 1px !default
 $tabs-link-color: $text !default
 $tabs-link-hover-border-bottom-color: $text-strong !default
+$tabs-link-hover-border-bottom-color-invert: $text-strong-invert !default
 $tabs-link-hover-color: $text-strong !default
+$tabs-link-hover-color-invert: $text-strong-invert !default
 $tabs-link-active-border-bottom-color: $link !default
+$tabs-link-active-border-bottom-color-invert: $link-invert !default
 $tabs-link-active-color: $link !default
+$tabs-link-active-color-invert: $link-invert !default
 $tabs-link-padding: 0.5em 1em !default
 
 $tabs-boxed-link-radius: $radius !default
 $tabs-boxed-link-hover-background-color: $background !default
+$tabs-boxed-link-hover-background-color-invert: $background-invert !default
 $tabs-boxed-link-hover-border-bottom-color: $border !default
+$tabs-boxed-link-hover-border-bottom-color-invert: $border-invert !default
 
 $tabs-boxed-link-active-background-color: $scheme-main !default
+$tabs-boxed-link-active-background-color-invert: $scheme-invert !default
 $tabs-boxed-link-active-border-color: $border !default
+$tabs-boxed-link-active-border-color-invert: $border-invert !default
 $tabs-boxed-link-active-border-bottom-color: transparent !default
 
 $tabs-toggle-link-border-color: $border !default
+$tabs-toggle-link-border-color-invert: $border-invert !default
 $tabs-toggle-link-border-style: solid !default
 $tabs-toggle-link-border-width: 1px !default
 $tabs-toggle-link-hover-background-color: $background !default
+$tabs-toggle-link-hover-background-color-invert: $background-invert !default
 $tabs-toggle-link-hover-border-color: $border-hover !default
+$tabs-toggle-link-hover-border-color-invert: $border-hover-invert !default
 $tabs-toggle-link-radius: $radius !default
 $tabs-toggle-link-active-background-color: $link !default
+$tabs-toggle-link-active-background-color-invert: $link-invert !default
 $tabs-toggle-link-active-border-color: $link !default
+$tabs-toggle-link-active-border-color-invert: $link-invert !default
 $tabs-toggle-link-active-color: $link-invert !default
+$tabs-toggle-link-active-color-invert: $link !default
 
 .tabs
   @extend %block
@@ -45,6 +60,8 @@ $tabs-toggle-link-active-color: $link-invert !default
     border-bottom-style: $tabs-border-bottom-style
     border-bottom-width: $tabs-border-bottom-width
     color: $tabs-link-color
+    +darktheme
+      border-bottom-color: $tabs-border-bottom-color-invert
     display: flex
     justify-content: center
     margin-bottom: -#{$tabs-border-bottom-width}
@@ -53,15 +70,23 @@ $tabs-toggle-link-active-color: $link-invert !default
     &:hover
       border-bottom-color: $tabs-link-hover-border-bottom-color
       color: $tabs-link-hover-color
+      +darktheme
+        border-bottom-color: $tabs-link-hover-border-bottom-color-invert
+        color: $tabs-link-hover-color-invert
   li
     display: block
     &.is-active
       a
         border-bottom-color: $tabs-link-active-border-bottom-color
         color: $tabs-link-active-color
+        +darktheme
+          border-bottom-color: $tabs-link-active-border-bottom-color-invert
+          color: $tabs-link-active-color-invert
   ul
     align-items: center
     border-bottom-color: $tabs-border-bottom-color
+    +darktheme
+      border-bottom-color: $tabs-border-bottom-color-invert
     border-bottom-style: $tabs-border-bottom-style
     border-bottom-width: $tabs-border-bottom-width
     display: flex
@@ -101,12 +126,18 @@ $tabs-toggle-link-active-color: $link-invert !default
       &:hover
         background-color: $tabs-boxed-link-hover-background-color
         border-bottom-color: $tabs-boxed-link-hover-border-bottom-color
+        +darktheme
+          background-color: $tabs-boxed-link-hover-background-color-invert
+          border-bottom-color: $tabs-boxed-link-hover-border-bottom-color-invert
     li
       &.is-active
         a
           background-color: $tabs-boxed-link-active-background-color
           border-color: $tabs-boxed-link-active-border-color
           border-bottom-color: $tabs-boxed-link-active-border-bottom-color !important
+          +darktheme
+            background-color: $tabs-boxed-link-active-background-color-invert
+            border-color: $tabs-boxed-link-active-border-color-invert
   &.is-fullwidth
     li
       flex-grow: 1
@@ -114,6 +145,8 @@ $tabs-toggle-link-active-color: $link-invert !default
   &.is-toggle
     a
       border-color: $tabs-toggle-link-border-color
+      +darktheme
+        border-color: $tabs-toggle-link-border-color-invert
       border-style: $tabs-toggle-link-border-style
       border-width: $tabs-toggle-link-border-width
       margin-bottom: 0
@@ -121,6 +154,9 @@ $tabs-toggle-link-active-color: $link-invert !default
       &:hover
         background-color: $tabs-toggle-link-hover-background-color
         border-color: $tabs-toggle-link-hover-border-color
+        +darktheme
+          background-color: $tabs-toggle-link-hover-background-color-invert
+          border-color: $tabs-toggle-link-hover-border-color-invert
         z-index: 2
     li
       & + li
@@ -144,6 +180,10 @@ $tabs-toggle-link-active-color: $link-invert !default
           background-color: $tabs-toggle-link-active-background-color
           border-color: $tabs-toggle-link-active-border-color
           color: $tabs-toggle-link-active-color
+          +darktheme
+            background-color: $tabs-toggle-link-active-background-color-invert
+            border-color: $tabs-toggle-link-active-border-color-invert
+            color: $tabs-toggle-link-active-color-invert
           z-index: 1
     ul
       border-bottom: none

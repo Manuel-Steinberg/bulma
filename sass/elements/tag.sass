@@ -1,7 +1,9 @@
 @import "../utilities/mixins"
 
 $tag-background-color: $background !default
+$tag-background-color-invert: $background-invert !default
 $tag-color: $text !default
+$tag-color-invert: $text-invert !default
 $tag-radius: $radius !default
 $tag-delete-margin: 1px !default
 
@@ -63,6 +65,9 @@ $tag-colors: $colors !default
   background-color: $tag-background-color
   border-radius: $tag-radius
   color: $tag-color
+  +darktheme
+    background-color: $tag-background-color-invert
+    color: $tag-color-invert
   display: inline-flex
   font-size: $size-small
   height: 2em
@@ -130,8 +135,12 @@ $tag-colors: $colors !default
     &:hover,
     &:focus
       background-color: darken($tag-background-color, 5%)
+      +darktheme
+        background-color: darken($tag-background-color-invert, 5%)
     &:active
       background-color: darken($tag-background-color, 10%)
+      +darktheme
+        background-color: darken($tag-background-color-invert, 10%)
   &.is-rounded
     border-radius: $radius-rounded
 

@@ -1,14 +1,18 @@
 @import "../utilities/mixins"
 
 $card-color: $text !default
+$card-color-invert: $text-invert !default
 $card-background-color: $scheme-main !default
+$card-background-color-invert: $scheme-invert !default
 $card-shadow: $shadow !default
 $card-radius: 0.25rem !default
 
 $card-header-background-color: transparent !default
 $card-header-color: $text-strong !default
+$card-header-color-invert: $text-strong-invert !default
 $card-header-padding: 0.75rem 1rem !default
 $card-header-shadow: 0 0.125em 0.25em rgba($scheme-invert, 0.1) !default
+$card-header-shadow-invert: 0 0.125em 0.25em rgba($scheme-main, 0.1) !default
 $card-header-weight: $weight-bold !default
 
 $card-content-background-color: transparent !default
@@ -16,6 +20,7 @@ $card-content-padding: 1.5rem !default
 
 $card-footer-background-color: transparent !default
 $card-footer-border-top: 1px solid $border-light !default
+$card-footer-border-top-invert: 1px solid $border-dark !default
 $card-footer-padding: 0.75rem !default
 
 $card-media-margin: $block-spacing !default
@@ -25,6 +30,9 @@ $card-media-margin: $block-spacing !default
   border-radius: $card-radius
   box-shadow: $card-shadow
   color: $card-color
+  +darktheme
+    background-color: $card-background-color-invert
+    color: $card-color-invert
   max-width: 100%
   position: relative
 
@@ -46,6 +54,8 @@ $card-media-margin: $block-spacing !default
 .card-header-title
   align-items: center
   color: $card-header-color
+  +darktheme
+    color: $card-header-color-invert
   display: flex
   flex-grow: 1
   font-weight: $card-header-weight
@@ -82,6 +92,8 @@ $card-media-margin: $block-spacing !default
   @extend %card-item
   background-color: $card-footer-background-color
   border-top: $card-footer-border-top
+  +darktheme
+    border-top: $card-footer-border-top-invert
   align-items: stretch
   display: flex
 
@@ -95,6 +107,8 @@ $card-media-margin: $block-spacing !default
   padding: $card-footer-padding
   &:not(:last-child)
     +ltr-property("border", $card-footer-border-top)
+    +darktheme
+      +ltr-property("border", $card-footer-border-top-invert)
 
 // Combinations
 

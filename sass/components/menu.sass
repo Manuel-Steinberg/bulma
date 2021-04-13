@@ -1,19 +1,26 @@
 @import "../utilities/mixins"
 
 $menu-item-color: $text !default
+$menu-item-color-invert: $text-invert !default
 $menu-item-radius: $radius-small !default
 $menu-item-hover-color: $text-strong !default
+$menu-item-hover-color-invert: $text-strong-invert !default
 $menu-item-hover-background-color: $background !default
+$menu-item-hover-background-color-invert: $background-invert !default
 $menu-item-active-color: $link-invert !default
+$menu-item-active-color-invert: $link !default
 $menu-item-active-background-color: $link !default
+$menu-item-active-background-color-invert: $link-invert !default
 
 $menu-list-border-left: 1px solid $border !default
+$menu-list-border-left-invert: 1px solid $border-invert !default
 $menu-list-line-height: 1.25 !default
 $menu-list-link-padding: 0.5em 0.75em !default
 $menu-nested-list-margin: 0.75em !default
 $menu-nested-list-padding-left: 0.75em !default
 
 $menu-label-color: $text-light !default
+$menu-label-color-invert: $text-dark !default
 $menu-label-font-size: 0.75em !default
 $menu-label-letter-spacing: 0.1em !default
 $menu-label-spacing: 1em !default
@@ -33,23 +40,35 @@ $menu-label-spacing: 1em !default
   a
     border-radius: $menu-item-radius
     color: $menu-item-color
+    +darktheme
+      color: $menu-item-color-invert
     display: block
     padding: $menu-list-link-padding
     &:hover
       background-color: $menu-item-hover-background-color
       color: $menu-item-hover-color
+      +darktheme
+        background-color: $menu-item-hover-background-color-invert
+        color: $menu-item-hover-color-invert
     // Modifiers
     &.is-active
       background-color: $menu-item-active-background-color
       color: $menu-item-active-color
+      +darktheme
+        background-color: $menu-item-active-background-color-invert
+        color: $menu-item-active-color-invert
   li
     ul
       +ltr-property("border", $menu-list-border-left, false)
+      +darktheme
+        +ltr-property("border", $menu-list-border-left-invert, false)
       margin: $menu-nested-list-margin
       +ltr-property("padding", $menu-nested-list-padding-left, false)
 
 .menu-label
   color: $menu-label-color
+  +darktheme
+    color: $menu-label-color-invert
   font-size: $menu-label-font-size
   letter-spacing: $menu-label-letter-spacing
   text-transform: uppercase

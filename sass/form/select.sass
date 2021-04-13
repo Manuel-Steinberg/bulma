@@ -29,6 +29,8 @@ $select-colors: $form-colors !default
     &[disabled]:hover,
     fieldset[disabled] &:hover
       border-color: $input-disabled-border-color
+      +darktheme
+        border-color: $input-disabled-border-color-invert
     &:not([multiple])
       +ltr-property("padding", 2.5em)
     &[multiple]
@@ -40,6 +42,8 @@ $select-colors: $form-colors !default
   &:not(.is-multiple):not(.is-loading):hover
     &::after
       border-color: $input-hover-color
+      +darktheme
+        border-color: $input-hover-color-invert
   // Colors
   @each $name, $pair in $select-colors
     $color: nth($pair, 1)
@@ -67,6 +71,8 @@ $select-colors: $form-colors !default
   &.is-disabled
     &::after
       border-color: $input-disabled-color
+      +darktheme
+        border-color: $input-disabled-color-invert
   &.is-fullwidth
     width: 100%
     select

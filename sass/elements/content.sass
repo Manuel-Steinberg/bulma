@@ -1,23 +1,30 @@
 @import "../utilities/mixins"
 
 $content-heading-color: $text-strong !default
+$content-heading-color-invert: $text-strong-invert !default
 $content-heading-weight: $weight-semibold !default
 $content-heading-line-height: 1.125 !default
 
 $content-blockquote-background-color: $background !default
+$content-blockquote-background-color-invert: $background-invert !default
 $content-blockquote-border-left: 5px solid $border !default
+$content-blockquote-border-left-invert: 5px solid $border-invert !default
 $content-blockquote-padding: 1.25em 1.5em !default
 
 $content-pre-padding: 1.25em 1.5em !default
 
 $content-table-cell-border: 1px solid $border !default
+$content-table-cell-border-invert: 1px solid $border-invert !default
 $content-table-cell-border-width: 0 0 1px !default
 $content-table-cell-padding: 0.5em 0.75em !default
 $content-table-cell-heading-color: $text-strong !default
+$content-table-cell-heading-color-invert: $text-strong-invert !default
 $content-table-head-cell-border-width: 0 0 2px !default
 $content-table-head-cell-color: $text-strong !default
+$content-table-head-cell-color-invert: $text-strong-invert !default
 $content-table-foot-cell-border-width: 2px 0 0 !default
 $content-table-foot-cell-color: $text-strong !default
+$content-table-foot-cell-color-invert: $text-strong-invert !default
 
 .content
   @extend %block
@@ -41,6 +48,8 @@ $content-table-foot-cell-color: $text-strong !default
   h5,
   h6
     color: $content-heading-color
+    +darktheme
+      color: $content-heading-color-invert
     font-weight: $content-heading-weight
     line-height: $content-heading-line-height
   h1
@@ -69,6 +78,8 @@ $content-table-foot-cell-color: $text-strong !default
     margin-bottom: 1em
   blockquote
     background-color: $content-blockquote-background-color
+    +darktheme
+      background-color: $content-blockquote-background-color-invert
     +ltr-property("border", $content-blockquote-border-left, false)
     padding: $content-blockquote-padding
   ol
@@ -122,11 +133,15 @@ $content-table-foot-cell-color: $text-strong !default
     td,
     th
       border: $content-table-cell-border
+      +darktheme
+        border: $content-table-cell-border-invert
       border-width: $content-table-cell-border-width
       padding: $content-table-cell-padding
       vertical-align: top
     th
       color: $content-table-cell-heading-color
+      +darktheme
+        color: $content-table-cell-heading-color-invert
       &:not([align])
         text-align: inherit
     thead
@@ -134,11 +149,15 @@ $content-table-foot-cell-color: $text-strong !default
       th
         border-width: $content-table-head-cell-border-width
         color: $content-table-head-cell-color
+        +darktheme
+          color: $content-table-head-cell-color-invert
     tfoot
       td,
       th
         border-width: $content-table-foot-cell-border-width
         color: $content-table-foot-cell-color
+        +darktheme
+          color: $content-table-foot-cell-color-invert
     tbody
       tr
         &:last-child

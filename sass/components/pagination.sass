@@ -2,7 +2,9 @@
 @import "../utilities/mixins"
 
 $pagination-color: $text-strong !default
+$pagination-color-invert: $text-strong-invert !default
 $pagination-border-color: $border !default
+$pagination-border-color-invert: $border-invert !default
 $pagination-margin: -0.25rem !default
 $pagination-min-width: $control-height !default
 
@@ -16,24 +18,37 @@ $pagination-nav-padding-right: 0.75em !default
 
 $pagination-hover-color: $link-hover !default
 $pagination-hover-border-color: $link-hover-border !default
+$pagination-hover-border-color-invert: $link-hover-border-invert !default
 
 $pagination-focus-color: $link-focus !default
+$pagination-focus-color-invert: $link-focus-invert !default
 $pagination-focus-border-color: $link-focus-border !default
+$pagination-focus-border-color-invert: $link-focus-border-invert !default
 
 $pagination-active-color: $link-active !default
+$pagination-active-color-invert: $link-active-invert !default
 $pagination-active-border-color: $link-active-border !default
+$pagination-active-border-color-invert: $link-active-border-invert !default
 
 $pagination-disabled-color: $text-light !default
+$pagination-disabled-color-invert: $text-dark !default
 $pagination-disabled-background-color: $border !default
+$pagination-disabled-background-color-invert: $border-invert !default
 $pagination-disabled-border-color: $border !default
+$pagination-disabled-border-color-invert: $border-invert !default
 
 $pagination-current-color: $link-invert !default
+$pagination-current-color-invert: $link !default
 $pagination-current-background-color: $link !default
+$pagination-current-background-color-invert: $link-invert !default
 $pagination-current-border-color: $link !default
+$pagination-current-border-color-invert: $link-invert !default
 
 $pagination-ellipsis-color: $grey-light !default
+$pagination-ellipsis-color-invert: $grey-dark !default
 
 $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default
+$pagination-shadow-inset-invert: inset 0 1px 2px rgba($scheme-main, 0.2) !default
 
 .pagination
   @extend %block
@@ -80,12 +95,19 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default
 .pagination-link
   border-color: $pagination-border-color
   color: $pagination-color
+  +darktheme
+    border-color: $pagination-border-color-invert
+    color: $pagination-color-invert
   min-width: $pagination-min-width
   &:hover
     border-color: $pagination-hover-border-color
     color: $pagination-hover-color
+    +darktheme
+      border-color: $pagination-hover-border-color-invert
   &:focus
     border-color: $pagination-focus-border-color
+    +darktheme
+      border-color: $pagination-focus-border-color-invert
   &:active
     box-shadow: $pagination-shadow-inset
   &[disabled]
@@ -93,6 +115,10 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default
     border-color: $pagination-disabled-border-color
     box-shadow: none
     color: $pagination-disabled-color
+    +darktheme
+      background-color: $pagination-disabled-background-color-invert
+      border-color: $pagination-disabled-border-color-invert
+      color: $pagination-disabled-color-invert
     opacity: 0.5
 
 .pagination-previous,
@@ -106,9 +132,15 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($scheme-invert, 0.2) !default
     background-color: $pagination-current-background-color
     border-color: $pagination-current-border-color
     color: $pagination-current-color
+    +darktheme
+      background-color: $pagination-current-background-color-invert
+      border-color: $pagination-current-border-color-invert
+      color: $pagination-current-color-invert
 
 .pagination-ellipsis
   color: $pagination-ellipsis-color
+  #darktheme
+    color: $pagination-ellipsis-color-invert
   pointer-events: none
 
 .pagination-list

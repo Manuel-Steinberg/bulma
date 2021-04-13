@@ -1,8 +1,10 @@
 @import "../utilities/mixins"
 
 $navbar-background-color: $scheme-main !default
+$navbar-background-color-invert: $scheme-invert !default
 $navbar-box-shadow-size: 0 2px 0 0 !default
 $navbar-box-shadow-color: $background !default
+$navbar-box-shadow-color-invert: $background-invert !default
 $navbar-height: 3.25rem !default
 $navbar-padding-vertical: 1rem !default
 $navbar-padding-horizontal: 2rem !default
@@ -10,38 +12,55 @@ $navbar-z: 30 !default
 $navbar-fixed-z: 30 !default
 
 $navbar-item-color: $text !default
+$navbar-item-color-invert: $text-invert !default
 $navbar-item-hover-color: $link !default
+$navbar-item-hover-color-invert: $link-invert !default
 $navbar-item-hover-background-color: $scheme-main-bis !default
+$navbar-item-hover-background-color-invert: $scheme-invert-bis !default
 $navbar-item-active-color: $scheme-invert !default
+$navbar-item-active-color-invert: $scheme-main !default
 $navbar-item-active-background-color: transparent !default
 $navbar-item-img-max-height: 1.75rem !default
 
 $navbar-burger-color: $navbar-item-color !default
+$navbar-burger-color-invert: $navbar-item-color-invert !default
 
 $navbar-tab-hover-background-color: transparent !default
 $navbar-tab-hover-border-bottom-color: $link !default
+$navbar-tab-hover-border-bottom-color-invert: $link-invert !default
 $navbar-tab-active-color: $link !default
+$navbar-tab-active-color-invert: $link-invert !default
 $navbar-tab-active-background-color: transparent !default
 $navbar-tab-active-border-bottom-color: $link !default
+$navbar-tab-active-border-bottom-color-invert: $link-invert !default
 $navbar-tab-active-border-bottom-style: solid !default
 $navbar-tab-active-border-bottom-width: 3px !default
 
 $navbar-dropdown-background-color: $scheme-main !default
+$navbar-dropdown-background-color-invert: $scheme-invert !default
 $navbar-dropdown-border-top: 2px solid $border !default
+$navbar-dropdown-border-top-invert: 2px solid $border-invert !default
 $navbar-dropdown-offset: -4px !default
 $navbar-dropdown-arrow: $link !default
+$navbar-dropdown-arrow-invert: $link-invert !default
 $navbar-dropdown-radius: $radius-large !default
 $navbar-dropdown-z: 20 !default
 
 $navbar-dropdown-boxed-radius: $radius-large !default
 $navbar-dropdown-boxed-shadow: 0 8px 8px bulmaRgba($scheme-invert, 0.1), 0 0 0 1px bulmaRgba($scheme-invert, 0.1) !default
+$navbar-dropdown-boxed-shadow-invert: 0 8px 8px bulmaRgba($scheme-main, 0.1), 0 0 0 1px bulmaRgba($scheme-main, 0.1) !default
 
 $navbar-dropdown-item-hover-color: $scheme-invert !default
+$navbar-dropdown-item-hover-color-invert: $scheme-main !default
 $navbar-dropdown-item-hover-background-color: $background !default
+$navbar-dropdown-item-hover-background-color-invert: $background-invert !default
 $navbar-dropdown-item-active-color: $link !default
+$navbar-dropdown-item-active-color-invert: $link-invert !default
 $navbar-dropdown-item-active-background-color: $background !default
+$navbar-dropdown-item-active-background-color-invert: $background-invert !default
 
 $navbar-divider-background-color: $background !default
+$navbar-divider-background-color-invert: $background-invert !default
 $navbar-divider-height: 2px !default
 
 $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default
@@ -58,6 +77,8 @@ $navbar-colors: $colors !default
 
 .navbar
   background-color: $navbar-background-color
+  +darktheme
+    background-color: $navbar-background-color-invert
   min-height: $navbar-height
   position: relative
   z-index: $navbar-z
@@ -116,6 +137,8 @@ $navbar-colors: $colors !default
     width: 100%
   &.has-shadow
     box-shadow: $navbar-box-shadow-size $navbar-box-shadow-color
+    +darktheme
+      box-shadow: $navbar-box-shadow-size $navbar-box-shadow-color-invert
   &.is-fixed-bottom,
   &.is-fixed-top
     +navbar-fixed
@@ -123,6 +146,8 @@ $navbar-colors: $colors !default
     bottom: 0
     &.has-shadow
       box-shadow: $navbar-bottom-box-shadow-size $navbar-box-shadow-color
+      +darktheme
+        box-shadow: $navbar-bottom-box-shadow-size $navbar-box-shadow-color-invert
   &.is-fixed-top
     top: 0
 
@@ -155,6 +180,8 @@ body
 .navbar-burger
   @extend %reset
   color: $navbar-burger-color
+  +darktheme
+    color: $navbar-burger-color-invert
   +hamburger($navbar-height)
   +ltr-property("margin", auto, false)
 
@@ -164,6 +191,8 @@ body
 .navbar-item,
 .navbar-link
   color: $navbar-item-color
+  +darktheme
+    color: $navbar-item-color-invert
   display: block
   line-height: 1.5
   padding: 0.5rem 0.75rem
@@ -182,6 +211,9 @@ a.navbar-item,
   &.is-active
     background-color: $navbar-item-hover-background-color
     color: $navbar-item-hover-color
+    +darktheme
+      background-color: $navbar-item-hover-background-color-invert
+      color: $navbar-item-hover-color-invert
 
 .navbar-item
   flex-grow: 0
@@ -201,6 +233,8 @@ a.navbar-item,
     &:hover
       background-color: $navbar-tab-hover-background-color
       border-bottom-color: $navbar-tab-hover-border-bottom-color
+      +darktheme
+        border-bottom-color: $navbar-tab-hover-border-bottom-color-invert
     &.is-active
       background-color: $navbar-tab-active-background-color
       border-bottom-color: $navbar-tab-active-border-bottom-color
@@ -208,6 +242,9 @@ a.navbar-item,
       border-bottom-width: $navbar-tab-active-border-bottom-width
       color: $navbar-tab-active-color
       padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width})
+      +darktheme
+        border-bottom-color: $navbar-tab-active-border-bottom-color-invert
+        color: $navbar-tab-active-color-invert
 
 .navbar-content
   flex-grow: 1
@@ -218,6 +255,8 @@ a.navbar-item,
   &::after
     @extend %arrow
     border-color: $navbar-dropdown-arrow
+    +darktheme
+      border-color: $navbar-dropdown-arrow-invert
     margin-top: -0.375em
     +ltr-position(1.125em)
 
@@ -231,6 +270,8 @@ a.navbar-item,
 
 .navbar-divider
   background-color: $navbar-divider-background-color
+  +darktheme
+    background-color: $navbar-divider-background-color-invert
   border: none
   display: none
   height: $navbar-divider-height
@@ -250,6 +291,9 @@ a.navbar-item,
   .navbar-menu
     background-color: $navbar-background-color
     box-shadow: 0 8px 16px bulmaRgba($scheme-invert, 0.1)
+    +darktheme
+      background-color: $navbar-background-color-invert
+      box-shadow: 0 8px 16px bulmaRgba($scheme-main, 0.1)
     padding: 0.5rem 0
     &.is-active
       display: block
@@ -262,6 +306,8 @@ a.navbar-item,
       bottom: 0
       &.has-shadow
         box-shadow: 0 -2px 3px bulmaRgba($scheme-invert, 0.1)
+        +darktheme
+          box-shadow: 0 -2px 3px bulmaRgba($scheme-main, 0.1)
     &.is-fixed-top-touch
       top: 0
     &.is-fixed-top,
@@ -314,9 +360,13 @@ a.navbar-item,
           &:hover
             background-color: $navbar-dropdown-item-hover-background-color
             color: $navbar-dropdown-item-hover-color
+            +darktheme
+              color: $navbar-dropdown-item-hover-color-invert
           &.is-active
             background-color: $navbar-dropdown-item-active-background-color
             color: $navbar-dropdown-item-active-color
+            +darktheme
+              color: $navbar-dropdown-item-active-color-invert
   .navbar-burger
     display: none
   .navbar-item,
@@ -335,6 +385,9 @@ a.navbar-item,
         border-top: none
         bottom: 100%
         box-shadow: 0 -8px 8px bulmaRgba($scheme-invert, 0.1)
+        +darktheme
+          border-bottom: $navbar-dropdown-border-top-invert
+          box-shadow: 0 -8px 8px bulmaRgba($scheme-main, 0.1)
         top: auto
     &.is-active,
     &.is-hoverable:focus,
@@ -362,6 +415,10 @@ a.navbar-item,
     border-bottom-right-radius: $navbar-dropdown-radius
     border-top: $navbar-dropdown-border-top
     box-shadow: 0 8px 8px bulmaRgba($scheme-invert, 0.1)
+    +darktheme
+      background-color: $navbar-dropdown-background-color-invert
+      border-top: $navbar-dropdown-border-top-invert
+      box-shadow: 0 8px 8px bulmaRgba($scheme-main, 0.1)
     display: none
     font-size: 0.875rem
     +ltr-position(0, false)
@@ -378,14 +435,22 @@ a.navbar-item,
       &:hover
         background-color: $navbar-dropdown-item-hover-background-color
         color: $navbar-dropdown-item-hover-color
+        +darktheme
+          background-color: $navbar-dropdown-item-hover-background-color-invert
+          color: $navbar-dropdown-item-hover-color-invert
       &.is-active
         background-color: $navbar-dropdown-item-active-background-color
         color: $navbar-dropdown-item-active-color
+        +darktheme
+          background-color: $navbar-dropdown-item-active-background-color-invert
+          color: $navbar-dropdown-item-active-color-invert
     .navbar.is-spaced &,
     &.is-boxed
       border-radius: $navbar-dropdown-boxed-radius
       border-top: none
       box-shadow: $navbar-dropdown-boxed-shadow
+      +darktheme
+        box-shadow: $navbar-dropdown-boxed-shadow-invert
       display: block
       opacity: 0
       pointer-events: none
@@ -413,6 +478,8 @@ a.navbar-item,
       bottom: 0
       &.has-shadow
         box-shadow: 0 -2px 3px bulmaRgba($scheme-invert, 0.1)
+        +darktheme
+          box-shadow: 0 -2px 3px bulmaRgba($scheme-main, 0.1)
     &.is-fixed-top-desktop
       top: 0
   html,
@@ -430,6 +497,8 @@ a.navbar-item,
   .navbar-link
     &.is-active
       color: $navbar-item-active-color
+      +darktheme
+        color: $navbar-item-active-color-invert
     &.is-active:not(:focus):not(:hover)
       background-color: $navbar-item-active-background-color
   .navbar-item.has-dropdown
@@ -438,6 +507,8 @@ a.navbar-item,
     &.is-active
       .navbar-link
         background-color: $navbar-item-hover-background-color
+        +darktheme
+          background-color: $navbar-item-hover-background-color-invert
 
 // Combination
 

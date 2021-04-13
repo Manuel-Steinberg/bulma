@@ -3,6 +3,7 @@
 $modal-z: 40 !default
 
 $modal-background-background-color: bulmaRgba($scheme-invert, 0.86) !default
+$modal-background-background-color-invert: bulmaRgba($scheme-main, 0.86) !default
 
 $modal-content-width: 640px !default
 $modal-content-margin-mobile: 20px !default
@@ -16,18 +17,23 @@ $modal-close-top: 20px !default
 $modal-card-spacing: 40px !default
 
 $modal-card-head-background-color: $background !default
+$modal-card-head-background-color-invert: $background-invert !default
 $modal-card-head-border-bottom: 1px solid $border !default
+$modal-card-head-border-bottom-invert: 1px solid $border-invert !default
 $modal-card-head-padding: 20px !default
 $modal-card-head-radius: $radius-large !default
 
 $modal-card-title-color: $text-strong !default
+$modal-card-title-color-invert: $text-strong-invert !default
 $modal-card-title-line-height: 1 !default
 $modal-card-title-size: $size-4 !default
 
 $modal-card-foot-radius: $radius-large !default
 $modal-card-foot-border-top: 1px solid $border !default
+$modal-card-foot-border-top-invert: 1px solid $border-invert !default
 
 $modal-card-body-background-color: $scheme-main !default
+$modal-card-body-background-color-invert: $scheme-invert !default
 $modal-card-body-padding: 20px !default
 
 $modal-breakpoint: $tablet !default
@@ -48,6 +54,8 @@ $modal-breakpoint: $tablet !default
 .modal-background
   @extend %overlay
   background-color: $modal-background-background-color
+  +darktheme
+    background-color: $modal-background-background-color-invert
 
 .modal-content,
 .modal-card
@@ -82,6 +90,8 @@ $modal-breakpoint: $tablet !default
 .modal-card-foot
   align-items: center
   background-color: $modal-card-head-background-color
+  +darktheme
+    background-color: $modal-card-head-background-color-invert
   display: flex
   flex-shrink: 0
   justify-content: flex-start
@@ -90,11 +100,15 @@ $modal-breakpoint: $tablet !default
 
 .modal-card-head
   border-bottom: $modal-card-head-border-bottom
+  +darktheme
+    border-bottom: $modal-card-head-border-bottom-invert
   border-top-left-radius: $modal-card-head-radius
   border-top-right-radius: $modal-card-head-radius
 
 .modal-card-title
   color: $modal-card-title-color
+  +darktheme
+    color: $modal-card-title-color-invert
   flex-grow: 1
   flex-shrink: 0
   font-size: $modal-card-title-size
@@ -104,6 +118,8 @@ $modal-breakpoint: $tablet !default
   border-bottom-left-radius: $modal-card-foot-radius
   border-bottom-right-radius: $modal-card-foot-radius
   border-top: $modal-card-foot-border-top
+  +darktheme
+    border-top: $modal-card-foot-border-top-invert
   .button
     &:not(:last-child)
       +ltr-property("margin", 0.5em)
@@ -111,6 +127,8 @@ $modal-breakpoint: $tablet !default
 .modal-card-body
   +overflow-touch
   background-color: $modal-card-body-background-color
+  +darktheme
+    background-color: $modal-card-body-background-color-invert
   flex-grow: 1
   flex-shrink: 1
   overflow: auto

@@ -2,46 +2,66 @@
 @import "../utilities/mixins"
 
 $button-color: $text-strong !default
+$button-color-invert: $text-strong-invert !default
 $button-background-color: $scheme-main !default
+$button-background-color-invert: $scheme-invert !default
 $button-family: false !default
 
 $button-border-color: $border !default
+$button-border-color-invert: $border-invert !default
 $button-border-width: $control-border-width !default
 
 $button-padding-vertical: calc(0.5em - #{$button-border-width}) !default
 $button-padding-horizontal: 1em !default
 
 $button-hover-color: $link-hover !default
+$button-hover-color-invert: $link-hover-invert !default
 $button-hover-border-color: $link-hover-border !default
+$button-hover-border-color-invert: $link-hover-border-invert !default
 
 $button-focus-color: $link-focus !default
+$button-focus-color-invert: $link-focus-invert !default
 $button-focus-border-color: $link-focus-border !default
+$button-focus-border-color-invert: $link-focus-border-invert !default
 $button-focus-box-shadow-size: 0 0 0 0.125em !default
 $button-focus-box-shadow-color: bulmaRgba($link, 0.25) !default
+$button-focus-box-shadow-color-invert: bulmaRgba($link-invert, 0.25) !default
 
 $button-active-color: $link-active !default
+$button-active-color-invert: $link-active-invert !default
 $button-active-border-color: $link-active-border !default
+$button-active-border-color-invert: $link-active-border-invert !default
 
 $button-text-color: $text !default
+$button-text-color-invert: $text-invert !default
 $button-text-decoration: underline !default
 $button-text-hover-background-color: $background !default
+$button-text-hover-background-color-invert: $background-invert !default
 $button-text-hover-color: $text-strong !default
+$button-text-hover-color-invert: $text-strong-invert !default
 
 $button-ghost-background: none !default
 $button-ghost-border-color: transparent !default
 $button-ghost-color: $link !default
+$button-ghost-color-invert: $link-invert !default
 $button-ghost-decoration: none !default
 $button-ghost-hover-color: $link !default
+$button-ghost-hover-color-invert: $link-invert !default
 $button-ghost-hover-decoration: underline !default
 
 $button-disabled-background-color: $scheme-main !default
+$button-disabled-background-color-invert: $scheme-invert !default
 $button-disabled-border-color: $border !default
+$button-disabled-border-color-invert: $border-invert !default
 $button-disabled-shadow: none !default
 $button-disabled-opacity: 0.5 !default
 
 $button-static-color: $text-light !default
+$button-static-color-invert: $text-dark !default
 $button-static-background-color: $scheme-main-ter !default
+$button-static-background-color-invert: $scheme-invert-ter !default
 $button-static-border-color: $border !default
+$button-static-border-color-invert: $border-invert !default
 
 $button-colors: $colors !default
 
@@ -65,6 +85,10 @@ $button-colors: $colors !default
   border-width: $button-border-width
   color: $button-color
   cursor: pointer
+  +darktheme
+    background-color: $button-background-color-invert
+    border-color: $button-border-color-invert
+    color: $button-color-invert
   @if $button-family
     font-family: $button-family
   justify-content: center
@@ -97,21 +121,34 @@ $button-colors: $colors !default
   &.is-hovered
     border-color: $button-hover-border-color
     color: $button-hover-color
+    +darktheme
+      border-color: $button-hover-border-color-invert
+      color: $button-hover-color-invert
   &:focus,
   &.is-focused
     border-color: $button-focus-border-color
     color: $button-focus-color
+    +darktheme
+      border-color: $button-focus-border-color-invert
+      color: $button-focus-color-invert
     &:not(:active)
       box-shadow: $button-focus-box-shadow-size $button-focus-box-shadow-color
+      +darktheme
+        box-shadow: $button-focus-box-shadow-size $button-focus-box-shadow-color-invert
   &:active,
   &.is-active
     border-color: $button-active-border-color
     color: $button-active-color
+    +darktheme
+      border-color: $button-active-border-color-invert
+      color: $button-active-color-invert
   // Colors
   &.is-text
     background-color: transparent
     border-color: transparent
     color: $button-text-color
+    +darktheme
+      color: $button-text-color-invert
     text-decoration: $button-text-decoration
     &:hover,
     &.is-hovered,
@@ -119,10 +156,16 @@ $button-colors: $colors !default
     &.is-focused
       background-color: $button-text-hover-background-color
       color: $button-text-hover-color
+      +darktheme
+        background-color: $button-text-hover-background-color-invert
+        color: $button-text-hover-color-invert
     &:active,
     &.is-active
       background-color: bulmaDarken($button-text-hover-background-color, 5%)
       color: $button-text-hover-color
+      +darktheme
+        background-color: bulmaDarken($button-text-hover-background-color-invert, 5%)
+        color: $button-text-hover-color-invert
     &[disabled],
     fieldset[disabled] &
       background-color: transparent
@@ -132,10 +175,14 @@ $button-colors: $colors !default
     background: $button-ghost-background
     border-color: $button-ghost-border-color
     color: $button-ghost-color
+    +darktheme
+      color: $button-ghost-color-invert
     text-decoration: $button-ghost-decoration
     &:hover,
     &.is-hovered
       color: $button-ghost-hover-color
+      +darktheme
+        color: $button-ghost-hover-color-invert
       text-decoration: $button-ghost-hover-decoration
   @each $name, $pair in $button-colors
     $color: nth($pair, 1)
@@ -260,6 +307,9 @@ $button-colors: $colors !default
   fieldset[disabled] &
     background-color: $button-disabled-background-color
     border-color: $button-disabled-border-color
+    +darktheme
+      background-color: $button-disabled-background-color-invert
+      border-color: $button-disabled-border-color-invert
     box-shadow: $button-disabled-shadow
     opacity: $button-disabled-opacity
   &.is-fullwidth
@@ -276,6 +326,10 @@ $button-colors: $colors !default
     background-color: $button-static-background-color
     border-color: $button-static-border-color
     color: $button-static-color
+    +darktheme
+      background-color: $button-static-background-color-invert
+      border-color: $button-static-border-color-invert
+      color: $button-static-color-invert
     box-shadow: none
     pointer-events: none
   &.is-rounded

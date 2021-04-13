@@ -1,13 +1,17 @@
 @import "../utilities/mixins"
 
 $breadcrumb-item-color: $link !default
+$breadcrumb-item-color-invert: $link-invert !default
 $breadcrumb-item-hover-color: $link-hover !default
+$breadcrumb-item-hover-color-invert: $link-hover-invert !default
 $breadcrumb-item-active-color: $text-strong !default
+$breadcrumb-item-active-color-invert: $text-strong-invert !default
 
 $breadcrumb-item-padding-vertical: 0 !default
 $breadcrumb-item-padding-horizontal: 0.75em !default
 
 $breadcrumb-item-separator-color: $border-hover !default
+$breadcrumb-item-separator-color-invert: $border-hover-invert !default
 
 .breadcrumb
   @extend %block
@@ -17,11 +21,15 @@ $breadcrumb-item-separator-color: $border-hover !default
   a
     align-items: center
     color: $breadcrumb-item-color
+    +darktheme
+      color: $breadcrumb-item-color-invert
     display: flex
     justify-content: center
     padding: $breadcrumb-item-padding-vertical $breadcrumb-item-padding-horizontal
     &:hover
       color: $breadcrumb-item-hover-color
+      +darktheme
+        color: $breadcrumb-item-hover-color-invert
   li
     align-items: center
     display: flex
@@ -30,10 +38,14 @@ $breadcrumb-item-separator-color: $border-hover !default
     &.is-active
       a
         color: $breadcrumb-item-active-color
+        +darktheme
+          color: $breadcrumb-item-active-color
         cursor: default
         pointer-events: none
     & + li::before
       color: $breadcrumb-item-separator-color
+      +darktheme
+        color: $breadcrumb-item-separator-color-invert
       content: "\0002f"
   ul,
   ol

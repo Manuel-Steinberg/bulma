@@ -1,6 +1,7 @@
 @import "../utilities/mixins"
 
 $title-color: $text-strong !default
+$title-color-invert: $text-strong-invert !default
 $title-family: false !default
 $title-size: $size-3 !default
 $title-weight: $weight-semibold !default
@@ -11,11 +12,13 @@ $title-sub-size: 0.75em !default
 $title-sup-size: 0.75em !default
 
 $subtitle-color: $text !default
+$subtitle-color-invert: $text-invert !default
 $subtitle-family: false !default
 $subtitle-size: $size-5 !default
 $subtitle-weight: $weight-normal !default
 $subtitle-line-height: 1.25 !default
 $subtitle-strong-color: $text-strong !default
+$subtitle-strong-color-invert: $text-strong-invert !default
 $subtitle-strong-weight: $weight-semibold !default
 $subtitle-negative-margin: -1.25rem !default
 
@@ -35,6 +38,8 @@ $subtitle-negative-margin: -1.25rem !default
 
 .title
   color: $title-color
+  +darktheme
+    color: $title-color-invert
   @if $title-family
     font-family: $title-family
   font-size: $title-size
@@ -53,6 +58,8 @@ $subtitle-negative-margin: -1.25rem !default
 
 .subtitle
   color: $subtitle-color
+  +darktheme
+    color: $subtitle-color-invert
   @if $subtitle-family
     font-family: $subtitle-family
   font-size: $subtitle-size
@@ -60,6 +67,8 @@ $subtitle-negative-margin: -1.25rem !default
   line-height: $subtitle-line-height
   strong
     color: $subtitle-strong-color
+    +darktheme
+      color: $subtitle-strong-color-invert
     font-weight: $subtitle-strong-weight
   &:not(.is-spaced) + .title
     margin-top: $subtitle-negative-margin

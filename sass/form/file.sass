@@ -1,12 +1,18 @@
 $file-border-color: $border !default
+$file-border-color-invert: findColorInvert($file-border-color) !default
 $file-radius: $radius !default
 
 $file-cta-background-color: $scheme-main-ter !default
+$file-cta-background-color-invert: $scheme-invert-ter !default
 $file-cta-color: $text !default
+$file-cta-color-invert: findColorInvert($file-cta-color) !default
 $file-cta-hover-color: $text-strong !default
+$file-cta-hover-color-invert: findColorInvert($file-cta-hover-color) !default
 $file-cta-active-color: $text-strong !default
+$file-cta-active-color-invert: findColorInvert($file-cta-active-color) !default
 
 $file-name-border-color: $border !default
+$file-name-border-color-invert: findColorInvert($file-name-border-color) !default
 $file-name-border-style: solid !default
 $file-name-border-width: 1px 1px 1px 0 !default
 $file-name-max-width: 16em !default
@@ -131,12 +137,20 @@ $file-colors: $form-colors !default
     .file-cta
       background-color: bulmaDarken($file-cta-background-color, 2.5%)
       color: $file-cta-hover-color
+      +darktheme
+        background-color: bulmaDarken($file-cta-background-color-invert, 2.5%)
+        color: $file-cta-hover-color-invert
     .file-name
       border-color: bulmaDarken($file-name-border-color, 2.5%)
+      +darktheme
+        border-color: bulmaDarken($file-name-border-color-invert, 2.5%)
   &:active
     .file-cta
       background-color: bulmaDarken($file-cta-background-color, 5%)
       color: $file-cta-active-color
+      +darktheme
+        background-color: bulmaDarken($file-cta-background-color-invert, 5%)
+        color: $file-cta-active-color-invert
     .file-name
       border-color: bulmaDarken($file-name-border-color, 5%)
 
@@ -153,6 +167,8 @@ $file-colors: $form-colors !default
 .file-name
   @extend %control
   border-color: $file-border-color
+  +darktheme
+    border-color: $file-border-color-invert
   border-radius: $file-radius
   font-size: 1em
   padding-left: 1em
@@ -162,9 +178,14 @@ $file-colors: $form-colors !default
 .file-cta
   background-color: $file-cta-background-color
   color: $file-cta-color
+  +darktheme
+    background-color: $file-cta-background-color-invert
+    color: $file-cta-color-invert
 
 .file-name
   border-color: $file-name-border-color
+  +darktheme
+    border-color: $file-name-border-color-invert
   border-style: $file-name-border-style
   border-width: $file-name-border-width
   display: block

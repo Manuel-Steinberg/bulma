@@ -3,7 +3,9 @@
 $dropdown-menu-min-width: 12rem !default
 
 $dropdown-content-background-color: $scheme-main !default
+$dropdown-content-background-color-invert: $scheme-invert !default
 $dropdown-content-arrow: $link !default
+$dropdown-content-arrow-invert: $link-invert !default
 $dropdown-content-offset: 4px !default
 $dropdown-content-padding-bottom: 0.5rem !default
 $dropdown-content-padding-top: 0.5rem !default
@@ -12,12 +14,18 @@ $dropdown-content-shadow: $shadow !default
 $dropdown-content-z: 20 !default
 
 $dropdown-item-color: $text !default
+$dropdown-item-color-invert: $text-invert !default
 $dropdown-item-hover-color: $scheme-invert !default
+$dropdown-item-hover-color-invert: $scheme-main !default
 $dropdown-item-hover-background-color: $background !default
+$dropdown-item-hover-background-color-invert: $background-invert !default
 $dropdown-item-active-color: $link-invert !default
+$dropdown-item-active-color-invert: $link !default
 $dropdown-item-active-background-color: $link !default
+$dropdown-item-active-background-color-invert: $link-invert !default
 
 $dropdown-divider-background-color: $border-light !default
+$dropdown-divider-background-color-invert: $border-dark !default
 
 .dropdown
   display: inline-flex
@@ -49,6 +57,8 @@ $dropdown-divider-background-color: $border-light !default
 
 .dropdown-content
   background-color: $dropdown-content-background-color
+  +darktheme
+    background-color: $dropdown-content-background-color-invert
   border-radius: $dropdown-content-radius
   box-shadow: $dropdown-content-shadow
   padding-bottom: $dropdown-content-padding-bottom
@@ -56,6 +66,8 @@ $dropdown-divider-background-color: $border-light !default
 
 .dropdown-item
   color: $dropdown-item-color
+  +darktheme
+    color: $dropdown-item-color-invert
   display: block
   font-size: 0.875rem
   line-height: 1.5
@@ -71,12 +83,20 @@ button.dropdown-item
   &:hover
     background-color: $dropdown-item-hover-background-color
     color: $dropdown-item-hover-color
+    +darktheme
+      background-color: $dropdown-item-hover-background-color-invert
+      color: $dropdown-item-hover-color-invert
   &.is-active
     background-color: $dropdown-item-active-background-color
     color: $dropdown-item-active-color
+    +darktheme
+      background-color: $dropdown-item-active-background-color-invert
+      color: $dropdown-item-active-color-invert
 
 .dropdown-divider
   background-color: $dropdown-divider-background-color
+  +darktheme
+    ackground-color: $dropdown-divider-background-color-invert
   border: none
   display: block
   height: 1px

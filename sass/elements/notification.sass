@@ -1,7 +1,9 @@
 @import "../utilities/mixins"
 
 $notification-background-color: $background !default
+$notification-background-color-invert: $background-invert !default
 $notification-code-background-color: $scheme-main !default
+$notification-code-background-color-invert: $scheme-invert !default
 $notification-radius: $radius !default
 $notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default
 $notification-padding-ltr: 1.25rem 2.5rem 1.25rem 1.5rem !default
@@ -12,6 +14,8 @@ $notification-colors: $colors !default
 .notification
   @extend %block
   background-color: $notification-background-color
+  +darktheme
+    background-color: $notification-background-color-invert
   border-radius: $notification-radius
   position: relative
   +ltr
@@ -26,6 +30,8 @@ $notification-colors: $colors !default
   code,
   pre
     background: $notification-code-background-color
+    +darktheme
+      background: $notification-code-background-color-invert
   pre code
     background: transparent
   & > .delete

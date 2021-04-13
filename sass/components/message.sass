@@ -1,21 +1,26 @@
 @import "../utilities/mixins"
 
 $message-background-color: $background !default
+$message-background-color-invert: $background-invert !default
 $message-radius: $radius !default
 
 $message-header-background-color: $text !default
+$message-header-background-color-invert: $text-invert !default
 $message-header-color: $text-invert !default
+$message-header-color-invert: $text !default
 $message-header-weight: $weight-bold !default
 $message-header-padding: 0.75em 1em !default
 $message-header-radius: $radius !default
 
 $message-body-border-color: $border !default
+$message-body-border-color-invert: $border-invert !default
 $message-body-border-width: 0 0 0 4px !default
 $message-body-color: $text !default
 $message-body-padding: 1.25em 1.5em !default
 $message-body-radius: $radius !default
 
 $message-body-pre-background-color: $scheme-main !default
+$message-body-pre-background-color-invert: $scheme-invert !default
 $message-body-pre-code-background-color: transparent !default
 
 $message-header-body-border-width: 0 !default
@@ -24,6 +29,8 @@ $message-colors: $colors !default
 .message
   @extend %block
   background-color: $message-background-color
+  +darktheme
+    background-color: $message-background-color-invert
   border-radius: $message-radius
   font-size: $size-normal
   strong
@@ -72,6 +79,9 @@ $message-colors: $colors !default
   background-color: $message-header-background-color
   border-radius: $message-header-radius $message-header-radius 0 0
   color: $message-header-color
+  +darktheme
+    background-color: $message-header-background-color-invert
+    color: $message-header-color-invert
   display: flex
   font-weight: $message-header-weight
   justify-content: space-between
@@ -93,9 +103,13 @@ $message-colors: $colors !default
   border-style: solid
   border-width: $message-body-border-width
   color: $message-body-color
+  +darktheme
+    border-color: $message-body-border-color-invert
   padding: $message-body-padding
   code,
   pre
     background-color: $message-body-pre-background-color
+    +darktheme
+      background-color: $message-body-pre-background-color-invert
   pre code
     background-color: $message-body-pre-code-background-color
