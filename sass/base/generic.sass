@@ -1,6 +1,7 @@
 @import "../utilities/mixins"
 
 $body-background-color: $scheme-main !default
+$body-background-color-invert: findColorInvert($body-background-color) !default
 $body-size: 16px !default
 $body-min-width: 300px !default
 $body-rendering: optimizeLegibility !default
@@ -9,6 +10,7 @@ $body-overflow-x: hidden !default
 $body-overflow-y: scroll !default
 
 $body-color: $text !default
+$body-color-invert: findColorInvert($body-color) !default
 $body-font-size: 1em !default
 $body-weight: $weight-normal !default
 $body-line-height: 1.5 !default
@@ -21,10 +23,12 @@ $code-size: 0.875em !default
 $small-font-size: 0.875em !default
 
 $hr-background-color: $background !default
+$hr-background-color-invert: findColorInvert($hr-background-color) !default
 $hr-height: 2px !default
 $hr-margin: 1.5rem 0 !default
 
 $strong-color: $text-strong !default
+$strong-color-invert: findColorInvert($strong-color) !default
 $strong-weight: $weight-bold !default
 
 $pre-font-size: 0.875em !default
@@ -41,6 +45,9 @@ html
   overflow-y: $body-overflow-y
   text-rendering: $body-rendering
   text-size-adjust: 100%
+
+  +darktheme
+    background-color: $body-background-color-invert
 
 article,
 aside,
@@ -71,16 +78,26 @@ body
   font-weight: $body-weight
   line-height: $body-line-height
 
+  +darktheme
+    color: $body-color-invert
+
 // Inline
 
 a
   color: $link
   cursor: pointer
   text-decoration: none
+
+  +darktheme
+    color: $link-invert
+
   strong
     color: currentColor
   &:hover
     color: $link-hover
+
+    +darktheme
+      color: $link-hover-invert
 
 code
   background-color: $code-background
@@ -89,12 +106,19 @@ code
   font-weight: $code-weight
   padding: $code-padding
 
+  +darktheme
+    background-color: $code-background-invert
+    color: $code-invert
+
 hr
   background-color: $hr-background-color
   border: none
   display: block
   height: $hr-height
   margin: $hr-margin
+
+  +darktheme
+    background-color: $hr-background-color-invert
 
 img
   height: auto
@@ -115,6 +139,9 @@ strong
   color: $strong-color
   font-weight: $strong-weight
 
+  +darktheme
+    color: $strong-color-invert
+
 // Block
 
 fieldset
@@ -129,6 +156,11 @@ pre
   padding: $pre-padding
   white-space: pre
   word-wrap: normal
+
+  +darktheme
+    background-color: $pre-background-invert
+    color: $pre-invert
+
   code
     background-color: transparent
     color: currentColor
@@ -143,3 +175,6 @@ table
       text-align: inherit
   th
     color: $text-strong
+
+    +darktheme
+      color: $text-strong-invert
