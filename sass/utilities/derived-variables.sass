@@ -50,26 +50,37 @@ $scheme-invert-bis: $black-bis !default
 $scheme-invert-ter: $black-ter !default
 
 $background: $white-ter !default
+$background-invert: findColorInvert($white-ter) !default
 
 $border: $grey-lighter !default
+$border-invert: findColorInvert($grey-lighter) !default
 $border-hover: $grey-light !default
+$border-hover-invert: findColorInvert($grey-light) !default
 $border-light: $grey-lightest !default
+$border-dark: findDarkColor($border-light) !default
 $border-light-hover: $grey-light !default
+$border-dark-hover: findDarkColor($border-light-hover) !default
 
 // Text colors
 
 $text: $grey-dark !default
 $text-invert: findColorInvert($text) !default
 $text-light: $grey !default
+$text-dark: findDarkColor($text-light) !default
 $text-strong: $grey-darker !default
+$text-strong-invert: findColorInvert($text-strong) !default
 
 // Code colors
 
 $code: darken($red, 15%) !default
+$code-invert: findColorInvert($code) !default
 $code-background: $background !default
+$code-background-invert: findColorInvert($background) !default
 
 $pre: $text !default
+$pre-invert: findColorInvert($pre) !default
 $pre-background: $background !default
+$pre-background-invert: findColorInvert($pre-background) !default
 
 // Link colors
 
@@ -80,13 +91,19 @@ $link-dark: findDarkColor($link) !default
 $link-visited: $purple !default
 
 $link-hover: $grey-darker !default
+$link-hover-invert: findColorInvert($link-hover) !default
 $link-hover-border: $grey-light !default
+$link-hover-border-invert: findColorInvert($link-hover-border) !default
 
 $link-focus: $grey-darker !default
+$link-focus-invert: findColorInvert($link-focus) !default
 $link-focus-border: $blue !default
+$link-focus-border-invert: findColorInvert($link-focus-border) !default
 
 $link-active: $grey-darker !default
+$link-active-invert: findColorInvert($link-active) !default
 $link-active-border: $grey-dark !default
+$link-active-border-invert: findColorInvert($link-active-border) !default
 
 // Typography
 
@@ -102,6 +119,7 @@ $size-large: $size-4 !default
 // Effects
 
 $shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02) !default
+$shadow-invert: 0 0.5em 1em -0.125em rgba($scheme-main, 0.1), 0 0px 0 1px rgba($scheme-main, 0.02) !default
 
 // Lists and maps
 $custom-colors: null !default
