@@ -136,11 +136,11 @@ $tag-colors: $colors !default
     &:focus
       background-color: darken($tag-background-color, 5%)
       +darktheme
-        background-color: darken($tag-background-color-invert, 5%)
+        background-color: lighten($tag-background-color-invert, 5%)
     &:active
       background-color: darken($tag-background-color, 10%)
       +darktheme
-        background-color: darken($tag-background-color-invert, 10%)
+        background-color: lighten($tag-background-color-invert, 10%)
   &.is-rounded
     border-radius: $radius-rounded
 
