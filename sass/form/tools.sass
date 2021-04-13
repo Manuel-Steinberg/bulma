@@ -1,4 +1,5 @@
 $label-color: $text-strong !default
+$label-color-invert: findColorInvert($label-color) !default
 $label-weight: $weight-bold !default
 
 $help-size: $size-small !default
@@ -7,6 +8,8 @@ $label-colors: $form-colors !default
 
 .label
   color: $label-color
+  +darktheme
+    color: $label-color-invert
   display: block
   font-size: $size-normal
   font-weight: $label-weight
